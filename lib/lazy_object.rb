@@ -45,7 +45,7 @@ class LazyObject < BasicObject
   alias respond_to? respond_to_missing?
 
   # Forwards all method calls to the target object.
-  def method_missing(method_name, ...)
-	__target_object__.public_send(method_name, ...)
+  def method_missing(method_name, *args, **kwargs, &block)
+	__target_object__.public_send(method_name, *args, **kwargs, &block)
   end
 end
